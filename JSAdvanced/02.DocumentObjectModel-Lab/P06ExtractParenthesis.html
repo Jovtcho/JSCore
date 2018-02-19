@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="content">
+    This is (Bulgarian brandy). This is (alcoholic drink). This is even apples!
+</p>
+<script>
+    function extract(elementId) {
+        let output = [];
+        let regex = /\((.*?)\)/g;
+        let content = document.getElementById(elementId).textContent;
+        let match = regex.exec(content);
+
+        while (match) {
+            output.push(match[1]);
+            match = regex.exec(content);
+        }
+
+        return output.join("; ")
+    }
+    console.log(extract("content"));
+</script>
+</body>
+</html>

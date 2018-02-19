@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>List of Items</h1>
+<ul id="items"></ul>
+<input type="text" id="newText"/>
+<input type="button" value="Add"
+       onclick="addItem()">
+<script>
+    function addItem() {
+        let inputValue = document.getElementById("newText").value;
+
+        if (inputValue !== "") {
+            let list = document.getElementById("items");
+            let newListItem = document.createElement("li");
+            newListItem.textContent = inputValue + " ";
+
+            let span = document.createElement("span");
+            span.innerHTML = "<a href='#'>[Delete]</a>";
+            span.addEventListener("click", deleteItem);
+            newListItem.appendChild(span);
+
+            list.appendChild(newListItem);
+            document.getElementById("newText").value = "";
+        }
+
+        function deleteItem() {
+            //this - neshtoto, koeto e wiknalo funkciata
+            let listItem = this.parentNode;
+            let list = listItem.parentNode;
+            list.removeChild(listItem);
+        }
+    }
+</script>
+
+</body>
+</html>

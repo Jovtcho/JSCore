@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="time" style="border:3px solid blue; text-align:center; font-size:2em;"/>
+<input type="button" value="Start" onclick="countdown()"/>
+<input type="button" value="Stop" onclick="stopCountdown()"/>
+
+<script>
+    function countdown() {
+        let sec = Number(document.getElementById("time").value);
+        let intervalId = setInterval(decrement, 1000);
+
+        function decrement() {
+            sec--;
+            let minutes = Math.floor(sec / 60);
+            let seconds = sec % 60;
+            document.getElementById("time").value = minutes + ":" + (seconds < 10 ? "0" + seconds : seconds);
+            if (sec <= 0) {
+                clearInterval(intervalId);
+            }
+        }
+    }
+
+    function stopCountdown() {
+        clearInterval();
+        console.log("test");
+    }
+
+</script>
+
+</body>
+</html>
