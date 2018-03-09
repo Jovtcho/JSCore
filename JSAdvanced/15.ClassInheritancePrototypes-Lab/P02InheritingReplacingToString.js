@@ -1,0 +1,54 @@
+function solve() {
+    class Person {
+        constructor(name, email) {
+            this.name = name;
+            this.email = email;
+        }
+
+        toString() {
+            let className = this.constructor.name;
+            return `${className} (name: ${this.name}, email: ${this.email})`
+        }
+    }
+
+    class Teacher extends Person {
+        constructor(name, email, subject) {
+            super(name, email);
+            this.subject = subject;
+        }
+
+        toString() {
+            return super.toString().slice(0, -1) + `, subject: ${this.subject})`
+        }
+    }
+
+    class Student extends Person {
+        constructor(name, email, course) {
+            super(name, email);
+            this.course = course;
+        }
+
+        toString() {
+            return super.toString().slice(0, -1) + `, course: ${this.course})`
+        }
+    }
+
+    return {
+        Person,
+        Teacher,
+        Student
+    }
+}
+
+let Person = solve().Person;
+let Teacher = solve().Teacher;
+let Student = solve().Student;
+
+let person = new Person('Pesho', 'pesho@gmail.com');
+console.log(person.toString());
+
+let teacher = new Teacher('Gosho', 'gosho@mail.bg', 'JS');
+console.log(teacher.toString());
+
+let student = new Student('Misho', 'misho@yahoo.com', 'JavaScript');
+console.log(student.toString());
