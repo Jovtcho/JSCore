@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
+    <script src="../jquery-3.3.1.js"></script>
+</head>
+<body>
+<div id="main">
+
+</div>
+<script id="contact-template" type="text/x-handlebars-template">
+    <article>
+        <div class="title">
+            {{name}}
+            <button>&#8505;</button>
+        </div>
+        <div class="info">
+            <span>&phone; {{phone}}</span>
+            <span>&#9993; {{email}}</span>
+        </div>
+    </article>
+</script>
+<script>
+    let container = $('#main');
+    let source = $("#contact-template").html();
+    let template = Handlebars.compile(source);
+    let contacts = [{name: 'Ivan Ivanov', email: 'i.ivanov@gmail.com'},
+        {name: 'Maria Petrova', email: 'mar4eto@abv.bg'},
+        {name: 'Jordan Kirov', email: 'jordk@gmail.com'}];
+
+    for (let contact of contacts) {
+        let html = template(contact);
+        container.append(html);
+    }
+</script>
+</body>
+</html>

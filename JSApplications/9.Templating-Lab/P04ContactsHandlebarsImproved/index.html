@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
+    <script src="../jquery-3.3.1.js"></script>
+</head>
+<body>
+<div id="main">
+
+</div>
+<script id="contact-template" type="text/x-handlebars-template">
+    <article>
+        {{#each contacts}}
+        <div class="title">
+            {{name}}
+            <button>&#8505;</button>
+        </div>
+        <div class="info">
+            <span>&phone; {{phone}}</span>
+            <span>&#9993; {{email}}</span>
+        </div>
+        {{/each}}
+
+        <h1>Weather:</h1>
+        {{#if sunny}}
+        <h3>The sky is clear</h3>
+        {{else}}
+        <h3>The sky is overcast</h3>
+        {{/if}}
+        {{#if cloudy}}
+        <h3>The sky is overcast</h3>
+        {{else}}
+        <h3>The sky is clear</h3>
+        {{/if}}
+    </article>
+</script>
+<script>
+    let container = $('#main');
+    let source = $("#contact-template").html();
+    let template = Handlebars.compile(source);
+
+    let context = {
+        contacts: [{name: 'Ivan Ivanov', email: 'i.ivanov@gmail.com'},
+            {name: 'Maria Petrova', email: 'mar4eto@abv.bg'},
+            {name: 'Jordan Kirov', email: 'jordk@gmail.com'}],
+        sunny: true,
+        cloudy: true
+    };
+
+    let html = template(context);
+    container.append(html);
+</script>
+</body>
+</html>

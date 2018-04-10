@@ -1,0 +1,14 @@
+<tr data-id="{{_id}}">
+    <td>{{title}}</td>
+    <td>{{publisher}}</td>
+    <td>{{description}}</td>
+    <td>{{price}}</td>
+    <td>{{datePublished}}</td>
+    <td>
+        <a href="#/listAds/:{{_id}}" class="details">[Read more]</a>
+        {{#if isPublisher}}
+            <a href="#/deleteAd/:{{_id}}" class="delete">[Delete]</a>
+            <a href="#/editAd/:{{_id}}" class="edit">[Edit]</a>
+        {{/if}}
+    </td>
+</tr>
