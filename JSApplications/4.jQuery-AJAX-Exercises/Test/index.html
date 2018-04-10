@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test authentication</title>
+    <style>
+        label {
+            display: inline-block;
+            width: 5em;
+        }
+
+        #user, #pass {
+            width: 30em;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+<div id="main">
+    <label for="user">Name: </label><input id="user" type="text"><br>
+    <label for="pass">Pass: </label><input id="pass" type="password">
+    <input id="submit" type="button" value="Login">
+    <div id="content">
+        <ul id="posts">
+        </ul>
+    </div>
+</div>
+<script>
+    solution();
+</script>
+</body>
+</html>
