@@ -1,0 +1,20 @@
+{{> header}}
+
+<div class="content">
+    {{> menu}}
+
+    <section id="viewComments">
+        {{> postDetails}}
+
+        {{> createComment}}
+
+        {{#each comments}}
+            {{> comment}}
+        {{else}}
+            <p>No comments yet.</p>
+        {{/each}}
+    </section>
+
+</div>
+
+{{> footer}}

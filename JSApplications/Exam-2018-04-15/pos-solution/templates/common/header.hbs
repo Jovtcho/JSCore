@@ -1,0 +1,11 @@
+<header class="clearfix" id="profile">
+    {{#if isAuth}}
+       <div id="cashier"><span>Cashier: </span><a href="#">{{username}}</a></div>
+        <nav id="nav">
+            <ul>
+                <li><a href="#/receipts">Overview</a></li>
+                <li><a href="#/logout" class="logout">Logout</a></li>
+            </ul>
+        </nav>
+    {{/if}}
+</header>

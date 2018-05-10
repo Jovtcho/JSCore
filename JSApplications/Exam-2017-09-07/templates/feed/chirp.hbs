@@ -1,0 +1,15 @@
+<article class="chirp">
+    <div class="titlebar">
+        <input type="hidden" name="chirpAuthor" value="{{_acl.creator}}"/>
+        <a href="#/feed/{{author}}" class="chirp-author">{{author}}</a>
+        <span class="chirp-time">
+            {{#if isAuthor}}
+                <a href="#/delete/{{_id}}">delete</a>
+            {{/if}}
+
+            {{time}}
+    </span>
+
+    </div>
+    <p>{{text}}</p>
+</article>
